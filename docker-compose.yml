@@ -1,10 +1,16 @@
-# Production stack for kopitech.my on the VPS.
+# Production stack for kopitech.my on a shared VPS (behind Cloudflare).
 #
-#   kopitech   — the site image, pulled from Docker Hub (built by GitHub Actions)
-#   caddy      — reverse proxy, automatic HTTPS for kopitech.my via Let's Encrypt
-#   watchtower — polls Docker Hub and redeploys kopitech when a new image is pushed
+#   kopitech    — the site image, pulled from Docker Hub (built by GitHub Actions)
+#   cloudflared — Cloudflare Tunnel; dials OUT to Cloudflare and serves kopitech.my.
+#                 No inbound ports are opened, so it never conflicts with other
+#                 sites on this VPS (e.g. koma-my on port 80). Cloudflare handles
+#                 TLS / the certificate at its edge.
+#   watchtower  — polls Docker Hub and redeploys kopitech when a new image is pushed
 #
-# Set DOCKERHUB_USERNAME in a .env file next to this compose file.
+# Put these in a .env file next to this compose file:
+#   DOCKERHUB_USERNAME=kopitech
+#   DOCKERHUB_TOKEN=<docker hub token>          # to pull the private image
+#   CLOUDFLARE_TUNNEL_TOKEN=<tunnel token>      # from the Cloudflare dashboard
 
 services:
   kopitech:
@@ -18,20 +24,13 @@ services:
     networks:
       - web
 
-  caddy:
-    image: caddy:2-alpine
-    container_name: caddy
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: cloudflared
     restart: unless-stopped
-    # This VPS already runs another site on host port 80 (koma-my), so Caddy
-    # binds only 443. It obtains its Let's Encrypt cert over 443 (TLS-ALPN-01),
-    # which does not need port 80. Bare http:// is not served by Caddy here.
-    ports:
-      - "443:443"
-      - "443:443/udp"
-    volumes:
-      - ./Caddyfile:/etc/caddy/Caddyfile:ro
-      - caddy_data:/data
-      - caddy_config:/config
+    command: tunnel --no-autoupdate run
+    environment:
+      - TUNNEL_TOKEN=${CLOUDFLARE_TUNNEL_TOKEN}
     networks:
       - web
     depends_on:
@@ -54,10 +53,6 @@ services:
       - REPO_USER=${DOCKERHUB_USERNAME}
       - REPO_PASS=${DOCKERHUB_TOKEN}
     command: --label-enable --cleanup
-
-volumes:
-  caddy_data:
-  caddy_config:
 
 networks:
   web:
