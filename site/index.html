@@ -7,10 +7,10 @@
 <meta name="description" content="Kopitech tracks real prices for action cameras, dive gear, drones and travel tech across Shopee, Lazada and TikTok Shop Malaysia — and tells you when a deal is real. Launching soon.">
 <meta name="theme-color" content="#050B14">
 <link rel="canonical" href="https://kopitech.my/">
-<link rel="icon" href="/assets/mark.svg" type="image/svg+xml">
-<link rel="icon" href="/assets/icon-192.png" type="image/png" sizes="192x192">
-<link rel="apple-touch-icon" href="/assets/icon-192.png">
-<link rel="manifest" href="/site.webmanifest">
+<link rel="icon" href="assets/mark.svg" type="image/svg+xml">
+<link rel="icon" href="assets/icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="assets/icon-192.png">
+<link rel="manifest" href="site.webmanifest">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Kopitech">
 <meta property="og:title" content="Kopitech — Know the real price before you buy">
@@ -151,7 +151,8 @@
   </div>
 </main>
 
-<script src="/vendor/three.min.js"></script>
+<script src="vendor/three.min.js"></script>
+<script>if (typeof THREE === "undefined") document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"><\/script>');</script>
 <script>
 (function(){
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
