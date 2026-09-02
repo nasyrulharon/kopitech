@@ -1,0 +1,23 @@
+# Automatic HTTPS for kopitech.my (Let's Encrypt). Requires DNS A/AAAA records
+# for kopitech.my and www.kopitech.my pointing at this VPS, and ports 80/443 open.
+
+kopitech.my {
+    encode zstd gzip
+    reverse_proxy kopitech:80
+
+    header {
+        Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+        -Server
+    }
+
+    log {
+        output file /data/access.log {
+            roll_size 10MiB
+            roll_keep 5
+        }
+    }
+}
+
+www.kopitech.my {
+    redir https://kopitech.my{uri} permanent
+}

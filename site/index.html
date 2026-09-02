@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kopitech — Know the real price before you buy</title>
+<meta name="description" content="Kopitech tracks real prices for action cameras, dive gear, drones and travel tech across Shopee, Lazada and TikTok Shop Malaysia — and tells you when a deal is real. Launching soon.">
+<meta name="theme-color" content="#050B14">
+<link rel="canonical" href="https://kopitech.my/">
+<link rel="icon" href="/assets/mark.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="/assets/icon-192.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kopitech">
+<meta property="og:title" content="Kopitech — Know the real price before you buy">
+<meta property="og:description" content="Real price tracking for adventure and travel tech in Malaysia. Shopee, Lazada and TikTok Shop. Launching soon.">
+<meta property="og:url" content="https://kopitech.my/">
+<meta property="og:image" content="https://kopitech.my/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Kopitech — Know the real price before you buy">
+<meta name="twitter:description" content="Real price tracking for adventure and travel tech in Malaysia. Launching soon.">
+<meta name="twitter:image" content="https://kopitech.my/assets/og.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"Kopitech","url":"https://kopitech.my/","logo":"https://kopitech.my/assets/icon-512.png","description":"Real price tracking for adventure and travel tech in Malaysia.","areaServed":"MY"}
+</script>
+<style>
+  :root{
+    --ground:#050B14;--surface:#0C1523;--line:#1B2A3E;--line-strong:#2A3D57;
+    --text:#E8EEF6;--muted:#8A9BB3;--dim:#5A6B84;
+    --accent:#3FE0C5;--accent-ink:#04211C;--accent-soft:rgba(63,224,197,.12);
+    --copper:#D89A5B;--copper-soft:rgba(216,154,91,.14);
+    --logo-body:var(--copper);--logo-trace:var(--accent);
+    --font-display:"Unbounded","Arial Black","Helvetica Neue",sans-serif;
+    --font-body:"Instrument Sans","Helvetica Neue",Arial,sans-serif;
+    --font-mono:"JetBrains Mono","SFMono-Regular",Menlo,Consolas,monospace;
+    color-scheme:dark;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{margin:0;background:var(--ground);color:var(--text);font-family:var(--font-body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  h1{font-family:var(--font-display);font-weight:600;letter-spacing:-.01em;text-wrap:balance;margin:0}
+  p{margin:0}
+  a{color:inherit}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+
+  .page{position:relative;min-height:100svh;display:grid;grid-template-rows:auto 1fr auto;overflow:hidden}
+  #scene{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none}
+  .page::before{content:"";position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(55% 60% at 72% 50%,rgba(216,154,91,.13),transparent 60%),radial-gradient(45% 45% at 78% 40%,rgba(63,224,197,.10),transparent 65%)}
+  .page::after{content:"";position:absolute;inset:0;pointer-events:none;
+    background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:72px 72px;opacity:.26;
+    -webkit-mask-image:radial-gradient(70% 70% at 25% 50%,#000 15%,transparent 72%);mask-image:radial-gradient(70% 70% at 25% 50%,#000 15%,transparent 72%)}
+  .wrap{position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:0 24px;width:100%}
+
+  .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--font-display);font-weight:600;font-size:17px;letter-spacing:.02em}
+  .brand .mark{width:30px;height:30px;display:block;filter:drop-shadow(0 0 9px rgba(63,224,197,.4))}
+  .brand em{font-style:normal;color:var(--accent)}
+  .lang{display:inline-flex;border:1px solid var(--line-strong);border-radius:999px;padding:3px;gap:2px;font-family:var(--font-mono);font-size:12px;background:rgba(5,11,20,.5)}
+  .lang button{border:0;background:transparent;color:var(--muted);padding:5px 11px;border-radius:999px;cursor:pointer;font:inherit;letter-spacing:.08em}
+  .lang button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);font-weight:500}
+
+  .hero{display:grid;grid-template-columns:minmax(0,600px) 1fr;align-items:center;padding:48px 0}
+  .eyebrow{font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:10px}
+  .eyebrow i{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent);animation:pulse 2.2s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+  h1{font-size:clamp(36px,5.4vw,68px);line-height:1.04;margin:18px 0 22px}
+  h1 em{font-style:normal;color:var(--accent)}
+  .lede{font-size:clamp(16px,1.6vw,19px);color:var(--muted);max-width:52ch}
+  .soon{margin-top:34px;display:inline-flex;align-items:center;gap:14px;border:1px solid var(--line-strong);background:rgba(12,21,35,.7);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-radius:999px;padding:10px 18px 10px 12px}
+  .soon b{font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--copper);background:var(--copper-soft);padding:6px 10px;border-radius:999px;font-weight:500}
+  .soon span{font-size:14px;color:var(--text)}
+  .platforms{margin-top:36px;display:flex;flex-wrap:wrap;gap:8px 22px;font-family:var(--font-mono);font-size:12px;color:var(--dim);letter-spacing:.06em}
+  .platforms span::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--line-strong);margin-right:8px;vertical-align:middle}
+
+  .foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding:22px 0 26px;border-top:1px solid var(--line);font-size:13px;color:var(--dim)}
+  .social{display:flex;gap:8px;flex-wrap:wrap}
+  .social a{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:7px 12px;font-size:13px;transition:border-color .2s,color .2s}
+  .social a:hover{border-color:var(--accent);color:var(--text)}
+  .social svg{width:15px;height:15px}
+  .social a.soon-tag{color:var(--dim);cursor:default}
+  .social a.soon-tag:hover{border-color:var(--line);color:var(--dim)}
+  .social a small{font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--copper)}
+
+  @media (max-width:900px){
+    .hero{grid-template-columns:1fr;padding-top:270px;padding-bottom:40px;align-items:end}
+    h1{font-size:clamp(34px,9vw,48px)}
+  }
+  @media (max-width:520px){.foot{flex-direction:column;align-items:flex-start}}
+  @media (prefers-reduced-motion:reduce){.eyebrow i{animation:none}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="kmark" viewBox="0 0 48 48">
+    <g transform="rotate(-30 24 24)">
+      <ellipse cx="24" cy="24" rx="12" ry="17" fill="none" style="stroke:var(--logo-body,#D89A5B)" stroke-width="3.2"/>
+      <path d="M24 8.6 C 18 15, 30 20, 24 24 S 18 33, 24 39.4" fill="none" style="stroke:var(--logo-trace,#3FE0C5)" stroke-width="3.2" stroke-linecap="round"/>
+      <circle cx="24" cy="8.6" r="3" style="fill:var(--logo-trace,#3FE0C5)"/>
+      <circle cx="24" cy="39.4" r="3" style="fill:var(--logo-trace,#3FE0C5)"/>
+    </g>
+  </symbol>
+</svg>
+
+<main class="page">
+  <canvas id="scene" aria-hidden="true"></canvas>
+
+  <div class="wrap">
+    <nav class="nav" aria-label="Main">
+      <a class="brand" href="/"><svg class="mark" aria-hidden="true"><use href="#kmark"/></svg><span>Kopi<em>tech</em></span></a>
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" data-lang="bm" aria-pressed="false">BM</button>
+      </div>
+    </nav>
+  </div>
+
+  <div class="wrap">
+    <section class="hero">
+      <div>
+        <div class="eyebrow"><i></i><span data-en="Adventure tech · Malaysia" data-bm="Teknologi kembara · Malaysia">Adventure tech · Malaysia</span></div>
+        <h1 data-html="1" data-en="Know the <em>real price</em> before you buy." data-bm="Tahu <em>harga sebenar</em> sebelum anda beli.">Know the <em>real price</em> before you buy.</h1>
+        <p class="lede" data-en="Kopitech watches action cameras, dive gear, drones and travel tech across Shopee, Lazada and TikTok Shop every day — and tells you when a deal is real, and when it's just a bigger sticker."
+           data-bm="Kopitech memantau kamera aksi, peralatan selam, dron dan gajet kembara di Shopee, Lazada dan TikTok Shop setiap hari — dan beritahu anda bila tawaran itu benar-benar berbaloi, dan bila ia sekadar pelekat yang lebih besar.">Kopitech watches action cameras, dive gear, drones and travel tech across Shopee, Lazada and TikTok Shop every day — and tells you when a deal is real, and when it's just a bigger sticker.</p>
+        <div class="soon">
+          <b data-en="Launching soon" data-bm="Akan dilancarkan">Launching soon</b>
+          <span data-en="Buy, wait, or fake — one word per product, every day." data-bm="Beli, tunggu, atau palsu — satu perkataan setiap produk, setiap hari.">Buy, wait, or fake — one word per product, every day.</span>
+        </div>
+        <div class="platforms">
+          <span>Shopee</span><span>Lazada</span><span>TikTok Shop</span><span data-en="EN · BM" data-bm="BM · EN">EN · BM</span>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="wrap">
+    <footer class="foot">
+      <div class="social" aria-label="Channels">
+        <a class="soon-tag" href="#" aria-disabled="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4v10.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 4c.5 2.5 2.5 4 5 4"/></svg>TikTok <small data-en="soon" data-bm="segera">soon</small></a>
+        <a class="soon-tag" href="#" aria-disabled="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 4L3 11l6 2 2 6 3-4 5 3z"/><path d="M9 13l9-7"/></svg>Telegram <small data-en="soon" data-bm="segera">soon</small></a>
+        <a class="soon-tag" href="#" aria-disabled="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 18.6z"/><path d="M9 10c.5 2 2 3.5 4 4l1.5-1 2 1c-.5 1.5-1.5 2-3 2-3 0-6-3-6-6 0-1.5.5-2.5 2-3l1 2z"/></svg>WhatsApp <small data-en="soon" data-bm="segera">soon</small></a>
+      </div>
+      <div data-en="© 2026 Kopitech · Malaysia · Kopitech earns a commission on some links; it never changes the price you pay." data-bm="© 2026 Kopitech · Malaysia · Kopitech memperoleh komisen daripada sesetengah pautan; ia tidak mengubah harga yang anda bayar.">© 2026 Kopitech · Malaysia · Kopitech earns a commission on some links; it never changes the price you pay.</div>
+    </footer>
+  </div>
+</main>
+
+<script src="/vendor/three.min.js"></script>
+<script>
+(function(){
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var lang = 'en';
+  try { var s = localStorage.getItem('kopitech-lang'); if (s === 'bm' || s === 'en') lang = s; } catch(e){}
+  function applyLang(l){
+    lang = l; document.documentElement.lang = l === 'bm' ? 'ms' : 'en';
+    var nodes = document.querySelectorAll('[data-en]');
+    for (var i=0;i<nodes.length;i++){ var n = nodes[i], v = n.getAttribute('data-'+l); if (v == null) continue;
+      if (n.getAttribute('data-html') === '1') n.innerHTML = v; else n.textContent = v; }
+    var btns = document.querySelectorAll('.lang button');
+    for (var j=0;j<btns.length;j++) btns[j].setAttribute('aria-pressed', btns[j].getAttribute('data-lang') === l ? 'true' : 'false');
+    try { localStorage.setItem('kopitech-lang', l); } catch(e){}
+  }
+  var langBtns = document.querySelectorAll('.lang button');
+  for (var b=0;b<langBtns.length;b++) langBtns[b].addEventListener('click', function(){ applyLang(this.getAttribute('data-lang')); });
+  var soon = document.querySelectorAll('.soon-tag');
+  for (var k=0;k<soon.length;k++) soon[k].addEventListener('click', function(e){ e.preventDefault(); });
+  applyLang(lang);
+
+  function initScene(){
+    var canvas = document.getElementById('scene');
+    if (!canvas || typeof THREE === 'undefined') return;
+    var host = canvas.parentElement, renderer;
+    try { renderer = new THREE.WebGLRenderer({canvas:canvas, alpha:true, antialias:true}); } catch(e){ return; }
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio||1, 2));
+    renderer.outputEncoding = THREE.sRGBEncoding;
+    var scene = new THREE.Scene();
+    var camera = new THREE.PerspectiveCamera(38, 1, 0.1, 100); camera.position.set(0,0,9);
+    var ACC = 0x3FE0C5, COP = 0xD89A5B;
+
+    scene.add(new THREE.AmbientLight(0x1E3350, 0.6));
+    var key = new THREE.PointLight(0xFFD9B0, 1.1, 40); key.position.set(3.5,4,5); scene.add(key);
+    var fill = new THREE.PointLight(ACC, 0.9, 40); fill.position.set(-6,-2,4); scene.add(fill);
+    var rim = new THREE.PointLight(0x6A8CFF, 1.4, 40); rim.position.set(-2,5,-6); scene.add(rim);
+
+    var group = new THREE.Group(); scene.add(group);
+    var beanGroup = new THREE.Group(); group.add(beanGroup);
+
+    function creaseAngle(y){ return Math.PI/2 + Math.sin(y*Math.PI)*0.42; }
+    var geo = new THREE.SphereGeometry(1, 96, 72), pos = geo.attributes.position;
+    for (var i=0;i<pos.count;i++){
+      var x = pos.getX(i), y = pos.getY(i), z = pos.getZ(i);
+      if (z > 0 && Math.abs(y) < 0.93){
+        var a = Math.atan2(z, x), d = Math.abs(a - creaseAngle(y)), w = 0.16;
+        if (d < w){ var f = 1 - d/w; f = f*f*(3-2*f); var sc = 1 - 0.09*f; pos.setXYZ(i, x*sc, y*sc, z*sc); }
+      }
+    }
+    pos.needsUpdate = true; geo.computeVertexNormals();
+    var bean = new THREE.Mesh(geo, new THREE.MeshPhysicalMaterial({color:0x8E4E22, metalness:0.45, roughness:0.42, clearcoat:0.55, clearcoatRoughness:0.35, emissive:0x1C0B03, emissiveIntensity:0.5}));
+    bean.scale.set(1.05,1.5,0.82); beanGroup.add(bean);
+
+    var pts = [];
+    for (var k=0;k<=48;k++){ var yy = -0.88 + 1.76*k/48, r = Math.sqrt(Math.max(0,1-yy*yy)), ang = creaseAngle(yy);
+      pts.push(new THREE.Vector3(r*Math.cos(ang)*1.05*0.94, yy*1.5*0.94, r*Math.sin(ang)*0.82*0.94)); }
+    var curve = new THREE.CatmullRomCurve3(pts);
+    beanGroup.add(new THREE.Mesh(new THREE.TubeGeometry(curve, 96, 0.045, 10, false), new THREE.MeshBasicMaterial({color:0x9FFCEB})));
+    var glow = new THREE.Mesh(new THREE.TubeGeometry(curve, 96, 0.11, 10, false), new THREE.MeshBasicMaterial({color:ACC, transparent:true, opacity:0.28, blending:THREE.AdditiveBlending, depthWrite:false}));
+    beanGroup.add(glow);
+    var padMat = new THREE.MeshBasicMaterial({color:0xBFFFF3}), ends = [pts[0], pts[pts.length-1]];
+    for (var e=0;e<2;e++){ var p = new THREE.Mesh(new THREE.SphereGeometry(0.11,16,16), padMat); p.position.copy(ends[e]); beanGroup.add(p);
+      var ph = new THREE.Mesh(new THREE.SphereGeometry(0.24,16,16), new THREE.MeshBasicMaterial({color:ACC, transparent:true, opacity:0.22, blending:THREE.AdditiveBlending, depthWrite:false})); ph.position.copy(ends[e]); beanGroup.add(ph); }
+    var traceLight = new THREE.PointLight(ACC, 0.8, 5); traceLight.position.set(0.2,0,1.4); beanGroup.add(traceLight);
+
+    var cage = new THREE.Mesh(new THREE.SphereGeometry(1,20,14), new THREE.MeshBasicMaterial({color:ACC, wireframe:true, transparent:true, opacity:0.08}));
+    cage.scale.set(1.05*1.32,1.5*1.32,0.82*1.32); beanGroup.add(cage);
+    beanGroup.rotation.z = -0.42;
+
+    var ringA = new THREE.Mesh(new THREE.TorusGeometry(3.1,0.012,6,140), new THREE.MeshBasicMaterial({color:ACC, transparent:true, opacity:0.35}));
+    ringA.rotation.x = Math.PI/2.4; ringA.rotation.z = 0.3; group.add(ringA);
+    var ringB = new THREE.Mesh(new THREE.TorusGeometry(3.7,0.01,6,160), new THREE.MeshBasicMaterial({color:COP, transparent:true, opacity:0.28}));
+    ringB.rotation.x = Math.PI/1.75; ringB.rotation.y = 0.6; group.add(ringB);
+    function node(color, ring, r, speed, off){ var m = new THREE.Mesh(new THREE.SphereGeometry(0.07,12,12), new THREE.MeshBasicMaterial({color:color})); ring.add(m); return {m:m,r:r,s:speed,o:off}; }
+    var nodes = [node(ACC,ringA,3.1,0.5,0), node(ACC,ringA,3.1,0.5,Math.PI), node(COP,ringB,3.7,-0.35,1.2)];
+
+    var N = 650, bp = new Float32Array(N*3), bv = new Float32Array(N);
+    for (var q=0;q<N;q++){ bp[q*3]=(Math.random()-0.5)*24; bp[q*3+1]=(Math.random()-0.5)*14; bp[q*3+2]=(Math.random()-0.5)*10-3; bv[q]=0.004+Math.random()*0.011; }
+    var bGeo = new THREE.BufferGeometry(); bGeo.setAttribute('position', new THREE.BufferAttribute(bp,3));
+    scene.add(new THREE.Points(bGeo, new THREE.PointsMaterial({color:ACC, size:0.05, transparent:true, opacity:0.5, blending:THREE.AdditiveBlending, depthWrite:false})));
+
+    var mouse={x:0,y:0}, target={x:0,y:0};
+    window.addEventListener('pointermove', function(e){ mouse.x=(e.clientX/window.innerWidth-0.5)*2; mouse.y=(e.clientY/window.innerHeight-0.5)*2; }, {passive:true});
+
+    function layout(){
+      var w = host.clientWidth, h = host.clientHeight;
+      renderer.setSize(w, h, false); camera.aspect = w/h;
+      var wide = w > 900;
+      if (wide) camera.setViewOffset(w, h, -w*0.27, 0, w, h); else camera.setViewOffset(w, h, 0, h*0.5 - 150, w, h);
+      camera.updateProjectionMatrix();
+      group.scale.setScalar(wide ? (w > 1200 ? 1 : 0.85) : 0.55);
+    }
+    layout();
+    window.addEventListener('resize', function(){ layout(); if (reduced) renderer.render(scene, camera); });
+
+    var t0 = performance.now();
+    function frame(now){
+      var t = (now-t0)/1000;
+      beanGroup.rotation.y = Math.sin(t*0.35)*0.5 - 0.1; beanGroup.rotation.x = Math.sin(t*0.5)*0.08; beanGroup.position.y = Math.sin(t*0.8)*0.08;
+      glow.material.opacity = 0.22 + Math.sin(t*2.2)*0.08; traceLight.intensity = 0.9 + Math.sin(t*2.2)*0.35;
+      ringA.rotation.z += 0.0015; ringB.rotation.z -= 0.001;
+      for (var n=0;n<nodes.length;n++){ var nd = nodes[n], a = nd.o + t*nd.s; nd.m.position.set(Math.cos(a)*nd.r, Math.sin(a)*nd.r, 0); }
+      var p = bGeo.attributes.position.array;
+      for (var i=0;i<N;i++){ p[i*3+1] += bv[i]; p[i*3] += Math.sin(t+i)*0.0008; if (p[i*3+1] > 7.5) p[i*3+1] = -7.5; }
+      bGeo.attributes.position.needsUpdate = true;
+      target.x += (mouse.x*0.45 - target.x)*0.04; target.y += (-mouse.y*0.3 - target.y)*0.04;
+      camera.position.x = target.x; camera.position.y = target.y; camera.lookAt(0,0,0);
+      renderer.render(scene, camera);
+      if (!reduced) requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+  initScene();
+})();
+</script>
+</body>
+</html>

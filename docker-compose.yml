@@ -1,0 +1,57 @@
+# Production stack for kopitech.my on the VPS.
+#
+#   kopitech   — the site image, pulled from Docker Hub (built by GitHub Actions)
+#   caddy      — reverse proxy, automatic HTTPS for kopitech.my via Let's Encrypt
+#   watchtower — polls Docker Hub and redeploys kopitech when a new image is pushed
+#
+# Set DOCKERHUB_USERNAME in a .env file next to this compose file.
+
+services:
+  kopitech:
+    image: ${DOCKERHUB_USERNAME}/kopitech:latest
+    container_name: kopitech
+    restart: unless-stopped
+    expose:
+      - "80"
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+    networks:
+      - web
+
+  caddy:
+    image: caddy:2-alpine
+    container_name: caddy
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    networks:
+      - web
+    depends_on:
+      - kopitech
+
+  watchtower:
+    image: containrrr/watchtower:latest
+    container_name: watchtower
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - WATCHTOWER_CLEANUP=true          # remove old images after update
+      - WATCHTOWER_LABEL_ENABLE=true     # only touch containers with the enable label
+      - WATCHTOWER_POLL_INTERVAL=120     # seconds between Docker Hub checks
+      - WATCHTOWER_INCLUDE_RESTARTING=true
+      - TZ=Asia/Kuala_Lumpur
+    command: --label-enable --cleanup
+
+volumes:
+  caddy_data:
+  caddy_config:
+
+networks:
+  web:
