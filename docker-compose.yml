@@ -47,6 +47,10 @@ services:
       - WATCHTOWER_POLL_INTERVAL=120     # seconds between Docker Hub checks
       - WATCHTOWER_INCLUDE_RESTARTING=true
       - TZ=Asia/Kuala_Lumpur
+      # Credentials for pulling the private kopitech/kopitech image.
+      # Values come from the .env file next to this compose file — never committed.
+      - REPO_USER=${DOCKERHUB_USERNAME}
+      - REPO_PASS=${DOCKERHUB_TOKEN}
     command: --label-enable --cleanup
 
 volumes:
