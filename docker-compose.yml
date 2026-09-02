@@ -22,8 +22,10 @@ services:
     image: caddy:2-alpine
     container_name: caddy
     restart: unless-stopped
+    # This VPS already runs another site on host port 80 (koma-my), so Caddy
+    # binds only 443. It obtains its Let's Encrypt cert over 443 (TLS-ALPN-01),
+    # which does not need port 80. Bare http:// is not served by Caddy here.
     ports:
-      - "80:80"
       - "443:443"
       - "443:443/udp"
     volumes:
